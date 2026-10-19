@@ -1,73 +1,73 @@
-name: Build and release Aseprite
+name名称名称: Build and release Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite构建并发布 Aseprite
 
-on:
-  push:
+on触发条件触发条件:
+  push:push:
     branches:
       - main
     paths:
       - 'BuildLog.md'
-  workflow_dispatch:
+  workflow_dispatch: workflow_dispatch:
     inputs:
       publish:
-        description: Publish GitHub Release (disable for build-only validation)
+        description: : Publish GitHub Release (disable for build-only validation)        描述: : 发发布 GitHub 发布版（仅用于构建验证时可禁用）        描述: : 发布 GitHub 发布版（仅用于构建验证时可禁用）        描述: : 发布 GitHub 发布版（仅用于构建验证时可禁用）
         type: boolean
         required: true
         default: true
-env:
-  BUILD_TYPE: Release
+env:环境:
+  BUILD_TYPE:  构建类型: Release发布
 
-jobs:
-  fetch-aseprite-info:
-    name: Fetch deps info
-    runs-on: ubuntu-latest
-    outputs:
-      download-link: ${{ steps.aseprite-link.outputs.download-link }}
-      release-tag: ${{ steps.aseprite-link.outputs.release-tag }}
-    steps:
-      - name: Fetch Aseprite release link
-        id: aseprite-link
-        uses: a1393323447/fetch-release@main
-        with:
-            group: aseprite
-            repo: aseprite
-            match: Aseprite-.*?-Source.zip
+jobs:作业:
+  fetch-aseprite-info: 获取 Aseprite 信息:获取 Aseprite 信息:
+    name: Fetch deps info 名称: 获提取依赖信息名称: 获取依赖信息 名称: 提取依赖信息名称: 获取依赖信息
+    runs-on: ubuntu-latest 运行环境: 最最新版 Ubuntu 运行环境: 最新版 Ubuntu 运行环境: ubuntu-latest
+    outputs: 输出项:
+      download-link: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}      下载链接: ${{: ${{ steps.aseprite-link.outputs.download-link }}
+      release-tag      发布标签: ${{: ${{ steps.aseprite-link.outputs.release-tag }}      发布标签: ${{: ${{ steps.aseprite-link.outputs.release-tag }}      发布标签: ${{: ${{ steps.aseprite-link.outputs.release-tag }}      发布标签: ${{: ${{ steps.aseprite-link.outputs.release-tag }}
+    steps:: 步骤：:
+      - name名称:       - 名称: Fetch Aseprite release link      - name名称:       - 名称: 获取 Aseprite 发布链接
+        id        ID: : aseprite-link
+        uses        使用: : a1393323447/fetch-release@main
+        with        使用::        使用        使用::
+            group            组            组            组: : aseprite            组            组: : aseprite
+            repo            仓库: : aseprite            仓库            仓库: : aseprite            仓库            仓库: : aseprite            仓库            仓库: : aseprite
+            match            匹配: : Aseprite-.*?-Source.zip            匹配            匹配: : Aseprite-.*?-Source.zip
 
-  create-release:
-    name: Create Release
-    runs-on: ubuntu-latest
+  create-release创建发布::  创建发布::
+    name: : Create Release创建发布    名称: : 创建发布创建发布    名称: : 创建发布
+    runs-on: ubuntu-latest 运行环境: 最新版 Ubuntu 运行环境: ubuntu-latest
     needs: fetch-aseprite-info
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v7
-      - uses: ncipollo/release-action@v1.21.0
-        with:
-          tag: ${{ needs.fetch-aseprite-info.outputs.release-tag }}
+    permissions:    权限:
+      contents: write      内容: 写入
+    steps:步骤:
+      - uses使用: actions/checkout@v7      - 使用: actions/checkout@v7
+      - uses: ncipollo/release-action@v1.21.0      - 使用: ncipollo/release-action@v1.21.0
+        with:        使用:
+          tag: ${{ needs.fetch-aseprite-info.outputs.release-tag }}          标签: ${{ needs.fetch-aseprite-info.outputs.release-tag }}
           body: Aseprite-${{ needs.fetch-aseprite-info.outputs.release-tag }}
           skipIfReleaseExists: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}          令牌: ${{ secrets.GITHUB_TOKEN }}          令牌: ${{ secrets.GITHUB_TOKEN }}          令牌: ${{ secrets.GITHUB_TOKEN }}
 
   build-aseprite:
-    name: Build Aseprite
-    needs: [fetch-aseprite-info, create-release]
+    name: Build Aseprite    名称: 构建 Aseprite    名称: 构建 Aseprite    名称: 构建 Aseprite
+    needs: [fetch-aseprite-info, create-release]    需要: [获取Aseprite信息, 创建发布]
     if: >-
-      ${{ !cancelled() && needs.fetch-aseprite-info.result == 'success' &&
+      ${{ !cancelled() && needs.fetch-aseprite-info.result == 'success' &&      ${{ !已取消() && 需要.获取Aseprite信息.结果 == '成功' &&
           (needs.create-release.result == 'success' ||
            (github.event_name == 'workflow_dispatch' && !inputs.publish &&
             needs.create-release.result == 'skipped')) }}
-    permissions:
-      contents: write
+    permissions:    权限:
+      contents: write      内容: 写入
     runs-on: ${{ matrix.os }}
-    strategy:
-        matrix:
-          os: [ windows-latest, ubuntu-latest, macOS-latest ]
-        fail-fast: false
-    steps:
+    strategy:    策略:
+        matrix:        矩阵:
+          os: [ windows-latest ]          操作系统: [ windows-latest ]
+        fail-fast: false        遇到错误即停止: false
+    steps:步骤:
       - name: Install Dependencies
         if: runner.os == 'Linux'
-        shell: bash
-        run: |
+        shell: bash        shell: bash
+        run: |        run: |
           sudo apt-get update -qq
           sudo apt-get install -y \
             libpixman-1-dev libfreetype6-dev libharfbuzz-dev zlib1g-dev \
@@ -89,7 +89,7 @@ jobs:
           elif [[ "${{ runner.os }}" == "macOS" ]] ; then
             wget https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-macOS-Release-arm64.zip
             unzip Skia-macOS-Release-arm64.zip -d skia
-          else
+          else          否则
             wget https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-Linux-Release-x64.zip
             unzip Skia-Linux-Release-x64.zip -d skia
           fi
@@ -104,9 +104,9 @@ jobs:
           export laf_backend=skia
           export enable_scripting=on
 
-          if [[ "${{ runner.os }}" == "macOS" ]] ; then
+          if [[ "${{ runner.os }}" == "macOS" ]] ; then          如果 [[ "${{ runner.os }}" == "macOS" ]] ; 则
             export skia_arch=arm64
-          else
+          else          否则
             export skia_arch=x64
           fi
 
